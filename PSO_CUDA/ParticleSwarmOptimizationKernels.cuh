@@ -79,7 +79,7 @@ __global__ void CalculateVelocityKernel(
 
 	//! Improvement:
 	double newVelocity = velC * (k * velocity[indexVelocity]
-	+ c1 * random * (pBestSolutions[indexPBestSolutions] - solutions[indexSolutions])
+	+ c1 * personalBestInfluence * (pBestSolutions[indexPBestSolutions] - solutions[indexSolutions])
 	+ c2 * globalBestInfluence * (gBestSolution[threadId] - solutions[indexSolutions]));
 
 	velocity[indexVelocity] = newVelocity;
